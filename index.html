@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clean Code: Chapter 3</title>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://remark-it.now.sh/css/typo.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://remark-it.now.sh/css/font-nord.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://remark-it.now.sh/css/nord-dark.css"
+    />
+  </head>
+  <body>
+    <textarea id="source">
+
+layout: true
+class: nord-dark, typo, typo-selection
+
+---
+class: center, middle
+
+# Clean Code: Chapter 3
+## Functions
+
+---
+# Sections
+
+1. Small
+2. Do One Thing
+3. One Level of Abstraction
+4. Switch Statements
+5. Descriptive Names
+6. Function Arguments
+7. Have No Side Effects
+8. Command Query Separation
+9. Prefer Exceptions to returning Error Codes
+10. Don't Repeat Yourself
+11. Structured Programming
+12. How do you write Functions like this
+
+---
+# Small
+
+> Therefore, the indent level of a function should not be greater than one or two
+
+???
+Anecdote about 8 space tabs in the linux kernel as a means to avoid nesting.
+
+---
+# Small
+
+> Every function in this program was just two, or three, or four lines long. Each was transparently obvious. Each told a story. And each led you to the next in a compelling order. That’s how short your functions should be!
+
+???
+Aspire to this, but don't beat yourself up when you miss.
+
+---
+# Small
+
+```typescript
+const isEven = n => n % 2 === 0
+```
+
+---
+# Do One Thing 
+
+> FUNCTIONS SHOULD DO ONE THING.
+> THEY SHOULD DO IT WELL.
+> THEY SHOULD DO IT ONLY.
+
+???
+
+You may not be all in on functional programming, but it's largely compatible
+with this chapter. 
+
+---
+# Do One Thing
+
+And isn't _necessarily_ the enemy
+
+```typescript
+const sortOddDescendingAndEvenAscending = 
+  (unsortedNumbers: number[]): number[] => [
+    ...(unsortedNumbers || []).filter(isOdd).sort(sortDescending), 
+    ...(unsortedNumbers || []).filter(isEven).sort(sortAscending)
+  ]
+ ```
+ 
+???
+We have and right there in the title, but this function does one thing.
+
+It sets the stage for the other functions to do their thing.
+
+---
+# One Level of Abstraction
+
+---
+# Switch Statements
+
+It’s also hard to make a switch state- ment that does one thing. By their nature, switch statements always do N things. 
+
+---
+# Switch Statements
+
+At least entertain the idea that you may want to refactor your logic. 
+
+---
+# Descriptive Names
+
+---
+# Function Arguments
+
+> The ideal number of arguments for a function is zero (niladic). 
+
+![false](./assets/false.jpg)
+---
+# Function Arguments
+
+Martin is in the right ballpark, but had an off by one error.
+
+---
+# Have No Side Effects
+
+Martin is so close to advocating for functional programming in this book
+
+---
+# Command Query Separation
+
+---
+# Prefer Exceptions to returning Error Codes
+
+---
+# Don't Repeat Yourself
+
+Consider inverse logic as potentially duplication in disguise. 
+
+---
+# Structured Programming
+
+yeah, don't do this. Eagerly returning is an awesome way to clean up logic.
+
+---
+# How do you write Functions like this
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
